@@ -1,0 +1,31 @@
+header
+    a(href="/").header_logo
+        i.fab.fa-youtube
+    nav 
+        ul 
+            li 
+                a(href="/search")
+                    i.fas.fa-search
+            if !loggedIn
+                li 
+                    a(href="/login") 로그인
+                li 
+                    a(href="/join").header__btn 회원가입
+            else 
+                li  
+                    a(href="/users/logout") 로그아웃
+                li 
+                    a(href="/users/edit") 프로필
+                li 
+                    a(href="/videos/upload") 업로드
+                li 
+                    a(href=`/users/${loggedInUser._id}`)
+                        if loggedInUser 
+                            if loggedInUser.avatarUrl == ""
+                                span 🧡
+                            else 
+                                span 
+                                    if loggedInUser.avatarUrl
+                                        img(src="/" + loggedInUser.avatarUrl).header__avatar
+                                    else 
+                                        img(src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png").header__avatar

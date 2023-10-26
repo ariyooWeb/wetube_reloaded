@@ -1,0 +1,72 @@
+extends base.pug
+include mixins/video
+
+block content
+    include modal/modal
+    //- data 속성을 이용하여 html에 data를 저장할 수 있다. <div id="x" data-id="1234"> console.log(x.dataset)하면 저장된 데이터 확인가능 
+    div#videoContainer(data-id=video._id)
+        div.inner
+            video(src="/" + video.fileUrl)#video
+            div#videoControls
+                div.inner 
+                    div
+                        input(type="range",step="1", value=0, min="0")#timeline
+                    div.buttons 
+                        div.left__buttons
+                            button#play 
+                                i.fa-solid.fa-play
+                            span#time 
+                                span#currentTime 00:00:00
+                                span  / 
+                                span#totalTime 00:00:00
+                        div.right__buttons
+                            input(type="range",step="0.1", value=0.5, min="0", max="1")#volume
+                            button#mute 
+                                i.fa-solid.fa-volume-high
+                            button#fullScreen 
+                                i.fa-solid.fa-expand
+    div(data-time=video.createdAt, data-title=video.title)#description
+        p#videoTitle.desc=video.title
+        p.desc.description 
+            span 설명: #{video.description}
+        p#createdAt.desc
+    div#videoInfo
+        a(href=`/users/${video.owner._id}`)
+            if video.owner.avatarUrl
+                img(src="/" + video.owner.avatarUrl).avatar__small
+                span=video.owner.name 
+            else 
+                img(src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png").avatar__small
+                span=video.owner.name
+    if loggedIn
+        if String(video.owner._id) === String(loggedInUser._id)
+            div.video__edit_del
+                div.btn
+                    a(href=`${video.id}/edit`) 내용 수정 &rarr;
+                div.btn
+                    a(href=`${video.id}/delete`) 삭제 &rarr;
+    div.video__add-comment(data-login=loggedIn)
+        form.video__comment-form#commentForm
+            div.textarea__wrap 
+                textarea(cols="30", rows="10", placeholder="댓글 추가...")
+            button 댓글
+    div.video__comments
+        ul
+            each comment in commentNewArr.reverse()
+                li.video__comment(data-id=String(comment._id))
+                    if comment.owner.avatarUrl
+                        img(src="/" + comment.owner.avatarUrl)
+                    else
+                        img(src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png")
+                    div
+                        div.username  #{comment.owner.username}
+                        div.text  #{comment.text}
+                    if String(userId) === String(comment.owner._id)
+                            div.deleteBtn ❌
+                    
+block scripts
+    script(src="/static/js/videoPlayer.js")
+    script(src="/static/js/commentSection.js")
+    script(src="/static/js/modal.js")
+    script(src="/static/js/home.js")
+    script(src="/static/js/watch.js")

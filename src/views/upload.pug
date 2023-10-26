@@ -1,0 +1,16 @@
+extends base.pug
+
+block content
+    if errorMessage
+        span=errorMessage
+    form(method="POST",enctype="multipart/form-data")
+        label(for="video") 
+        video(controls class="preview")
+            source(preload="metadata" type="video/mp4")
+        input(type="file",accept="video/*", required, id="video",name="video")
+        input(name="title",value="",placeholder="제목",required,type="text")
+        input(name="description",value="",placeholder="설명",required,type="text")
+        input(name="hashtags",value="",placeholder="해쉬태그, 콤마로 구분됨",required,type="text")
+        input(type="submit", value="업로드", name="button").submit
+block scripts
+    script(src="/static/js/upload.js")

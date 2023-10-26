@@ -1,0 +1,25 @@
+extends base.pug
+
+block content 
+    form(method="POST", enctype="multipart/form-data").edit-profile__form
+        div.center
+            if avatar
+                img(src="/" + avatar)#avatarPreview
+            else 
+                img(src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png").avatar
+        label(for="avatar")
+        input(type="file", id="avatar",name="avatar", accept="image/*")
+        label(for="name") 이름
+        input(placeholder="이름",name="name",type="text",required,value=loggedInUser.name)
+        label(for="email") 이메일
+        input(placeholder="이메일",name="email",type="email",required,value=loggedInUser.email)
+        label(for="username") 닉네임
+        input(placeholder="닉네임",name="username",type="text",required,value=loggedInUser.username)
+        label(for="location") 주소
+        input(placeholder="주소",name="location",type="text",value=loggedInUser.location)
+        input(type="submit",value="프로필 업데이트").submit
+        if !loggedInUser.socialOnly
+            div.edit-profile__password
+                a(href="change-password") 비밀번호 변경 &rarr;
+block scripts
+    script(src="/static/js/editProfile.js")

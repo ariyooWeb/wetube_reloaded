@@ -1,0 +1,12 @@
+extends base.pug
+include mixins/video
+
+block content
+    if videos.length !== 0
+        div.video-grid
+            each item in videos
+                +video(item)
+    else 
+        div.empty__message 현재 업로드된 비디오가 없습니다
+block scripts
+    script(src="/static/js/home.js")

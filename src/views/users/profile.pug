@@ -1,0 +1,18 @@
+extends ../base
+include ../mixins/video
+
+block content 
+    div.profile__data
+        if user.avatarUrl
+            img(src="/" + user.avatarUrl).avatar
+        else 
+            img(src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png").avatar
+        h3=user.name
+    if user.videos.length !== 0
+        div.video-grid
+            each video in user.videos 
+                +video(video)
+    else 
+        div.empty__message 업로드한 비디오가 없습니다
+block scripts
+    script(src="/static/js/home.js")

@@ -1,0 +1,10 @@
+extends base.pug
+include mixins/video
+
+block content
+    h3.pageTitle 비디오 업데이트
+    form(method="POST")
+        input(name="제목",placeholder="video title",value=video.title,required)
+        input(name="설명",placeholder="description",required,type="text",value=video.description)
+        input(name="해시태그",placeholder="hashtags, separated by comma.",required,type="text",value=video.hashtags.join())
+        input(value="저장",type="submit").submit

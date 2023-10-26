@@ -1,0 +1,17 @@
+extends base.pug
+include mixins/video
+
+block content 
+    form(method="GET").search__form
+        input(placeholder="제목으로 검색", type="text", name="keyword")
+        button
+            i.fas.fa-search
+    if videos.length !== 0 
+        div.video-grid   
+            each item in videos
+                +video(item)
+    else 
+        div.empty__message 검색 결과가 없습니다
+block scripts
+    script(src="/static/js/home.js")
+    script(src="/static/js/search.js")
