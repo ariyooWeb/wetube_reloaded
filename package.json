@@ -26,7 +26,8 @@
     "node-fetch": "^2.6.1",
     "pug": "^3.0.2",
     "regenerator-runtime": "^0.14.0",
-    "node": "v16.17.0"
+    "node": "v16.17.0",
+    "npm": "8.15.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",
