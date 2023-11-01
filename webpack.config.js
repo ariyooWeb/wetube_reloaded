@@ -7,7 +7,7 @@ module.exports = {
         videoPlayer: BASE_JS + "videoPlayer.js",
         commentSection: BASE_JS + "commentSection.js",
         upload: BASE_JS + "upload.js",
-        editprofile: BASE_JS + "editprofile.js",
+        editProfile: BASE_JS + "editProfile.js",
         home: BASE_JS + "home.js",
         modal: BASE_JS + "modal.js",
         search: BASE_JS + "search.js",
