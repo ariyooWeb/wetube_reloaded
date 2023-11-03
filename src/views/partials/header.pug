@@ -25,7 +25,7 @@ header
                                 span 🧡
                             else 
                                 span 
-                                    if loggedInUser.avatarUrl
+                                    if loggedInUser.avatarUrl != ""
                                         img(src="/" + loggedInUser.avatarUrl).header__avatar
                                     else 
                                         img(src="../../client/image/defaultThumbnail.png").header__avatar
