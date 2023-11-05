@@ -3,6 +3,7 @@ const form = document.getElementById("commentForm");
 const delBtns = document.querySelectorAll(".deleteBtn");
 const videoId = videoContainer.dataset.id;
 const modal = document.querySelector('.modal');
+console.log("test")
 
 const addComment = (text, id, owner, loggedInUser,userAvatar,username) => {
     const videoComments = document.querySelector(".video__comments ul");
