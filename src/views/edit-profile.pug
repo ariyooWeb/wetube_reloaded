@@ -4,7 +4,7 @@ block content
     form(method="POST", enctype="multipart/form-data").edit-profile__form
         div.center
             if avatar
-                img(src="/" + avatar)#avatarPreview
+                img(src=avatar)#avatarPreview
             else 
                 img(src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png").avatar
         label(for="avatar")

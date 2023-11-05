@@ -9,7 +9,7 @@ videoMixinData.forEach(element => {
         if(jsonData.avatarUrl.charAt(0) == "/"){
             userImgTag.src = jsonData.avatarUrl;
         }else{
-            userImgTag.src = "/" + jsonData.avatarUrl;
+            userImgTag.src = jsonData.avatarUrl;
         }
     }else{
         userImgTag.src = "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png";

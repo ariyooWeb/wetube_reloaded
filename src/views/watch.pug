@@ -6,7 +6,7 @@ block content
     //- data 속성을 이용하여 html에 data를 저장할 수 있다. <div id="x" data-id="1234"> console.log(x.dataset)하면 저장된 데이터 확인가능 
     div#videoContainer(data-id=video._id)
         div.inner
-            video(src="/" + video.fileUrl)#video
+            video(src=video.fileUrl)#video
             div#videoControls
                 div.inner 
                     div
@@ -33,7 +33,7 @@ block content
     div#videoInfo
         a(href=`/users/${video.owner._id}`)
             if video.owner.avatarUrl
-                img(src="/" + video.owner.avatarUrl).avatar__small
+                img(src=video.owner.avatarUrl).avatar__small
                 span=video.owner.name 
             else 
                 img(src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png").avatar__small
