@@ -41,8 +41,8 @@ block content
     if loggedIn
         if String(video.owner._id) === String(loggedInUser._id)
             div.video__edit_del
-                div.btn
-                    a(href=`${video.id}/edit`) 내용 수정 &rarr;
+                //- div.btn
+                //-     a(href=`${video.id}/edit`) 내용 수정 &rarr;
                 div.btn
                     a(href=`${video.id}/delete`) 삭제 &rarr;
     div.video__add-comment(data-login=loggedIn)
