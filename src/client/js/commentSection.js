@@ -11,7 +11,7 @@ const addComment = (text, id, owner, loggedInUser,userAvatar,username) => {
     newComment.dataset.id = id;
     const icon = document.createElement("img");
     if(userAvatar) {
-        icon.src = "/" + userAvatar;
+        icon.src = userAvatar;
     }else {
         icon.src = "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png";
     }
