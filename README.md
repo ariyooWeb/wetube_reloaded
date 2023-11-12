@@ -1,5 +1,5 @@
 <h1>[풀스택] 유튜브 클론코딩 사이트입니다.</h1>
-<h3><a src="https://ariyoo-tube-c268863caf89.herokuapp.com/">사이트 바로가기</a></h3>
+<h3><a src="https://ariyoo-tube-c268863caf89.herokuapp.com/">https://ariyoo-tube-c268863caf89.herokuapp.com/</a></h3>
 <hr>
 <div>사용 언어</div>
 <p>▪️ Pug</p>
