@@ -14,4 +14,3 @@
 <hr>
 <div>배포</div>
 <p>▪️ heroku</p>
-<hr>
